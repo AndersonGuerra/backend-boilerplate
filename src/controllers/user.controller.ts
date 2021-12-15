@@ -4,7 +4,7 @@ import hashPassword from "../utils/hashPassword";
 import comparePassword from "../utils/comparePassword";
 import "dotenv/config";
 import { AppError } from "../middleware/errorHandler";
-import prisma from "../database/prisma";
+import prisma from "../config/database";
 
 class UserController {
   async create(req: Request, res: Response) {

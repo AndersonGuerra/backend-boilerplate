@@ -1,6 +1,6 @@
 import { Response, NextFunction } from "express";
 import Request from "../interfaces/request.interface";
-import prisma from "../database/prisma";
+import prisma from "../config/database";
 
 async function isSelfUser(req: Request, res: Response, next: NextFunction) {
   const { user } = req;
