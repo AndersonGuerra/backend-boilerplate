@@ -1,5 +1,5 @@
 import { Response, NextFunction } from "express";
-import Request from "../interfaces/request.interface";
+import Request from "../config/interfaces/request.interface";
 import jwt from "jsonwebtoken";
 import "dotenv/config";
 

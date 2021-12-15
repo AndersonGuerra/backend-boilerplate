@@ -3,6 +3,9 @@ import UserController from "../controllers/user.controller";
 
 const router = Router();
 
-router.post('/', UserController.auth)
+router.post("/", UserController.auth);
 
-export default router;
+export default {
+  name: "/auth",
+  router: router,
+};

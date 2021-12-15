@@ -8,4 +8,7 @@ router.post("/", upload.single("file"), FileController.create);
 router.get("/", FileController.list);
 router.get("/:id", FileController.get);
 
-export default router;
+export default {
+    name: "/files",
+    router: router,
+  };

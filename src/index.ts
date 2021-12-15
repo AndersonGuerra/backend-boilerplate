@@ -3,7 +3,7 @@ import "express-async-errors";
 import swaggerUi from "swagger-ui-express";
 import swaggerFile from "../swagger_output.json";
 import express from "express";
-import routes from "./routes/index.routes";
+import routes from "./routes";
 import fs from "fs";
 import setUser from "./middleware/setUser";
 import errorHandler from "./middleware/errorHandler";

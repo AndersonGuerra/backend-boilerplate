@@ -13,4 +13,7 @@ router.post("/", UserController.create);
 
 router.patch("/:id", isAuthenticated, isSelfUser, UserController.update); // falta um isSelfUser
 
-export default router;
+export default {
+  name: "/users",
+  router: router,
+};
