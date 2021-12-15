@@ -3,6 +3,15 @@ import prisma from "../database/prisma";
 
 class FileController {
   async create(req: Request, res: Response) {
+    /*
+      #swagger.consumes = ['multipart/form-data']  
+      #swagger.tags = ['file']
+      #swagger.parameters['file'] = {
+          in: 'formData',
+          type: 'file',
+          required: 'true',
+          description: 'Some description...',
+    } */
     const { title } = req.body;
     const data = await prisma.file.create({
       data: {
@@ -15,10 +24,16 @@ class FileController {
     return res.json(data);
   }
   async list(req: Request, res: Response) {
+    /**
+     * #swagger.tags = ['file']
+     */
     const data = await prisma.file.findMany({});
     return res.json(data);
   }
   async get(req: Request, res: Response) {
+    /**
+     * #swagger.tags = ['file']
+     */
     const { id } = req.params;
     const data = await prisma.file.findUnique({
       where: {

@@ -16,11 +16,13 @@
   "paths": {
     "/auth/": {
       "post": {
-        "tags": [],
-        "description": "",
+        "tags": [
+          "auth"
+        ],
+        "description": "Rota de autenticação de usuários",
         "parameters": [
           {
-            "name": "obj",
+            "name": "email",
             "in": "body",
             "schema": {
               "type": "object",
@@ -32,7 +34,9 @@
                   "example": "any"
                 }
               }
-            }
+            },
+            "description": "Endereço de e-mail do usuário",
+            "required": true
           }
         ],
         "responses": {
@@ -44,7 +48,9 @@
     },
     "/users/": {
       "get": {
-        "tags": [],
+        "tags": [
+          "users"
+        ],
         "description": "",
         "parameters": [],
         "responses": {
@@ -54,7 +60,9 @@
         }
       },
       "post": {
-        "tags": [],
+        "tags": [
+          "users"
+        ],
         "description": "",
         "parameters": [],
         "responses": {
@@ -66,7 +74,9 @@
     },
     "/users/{id}": {
       "get": {
-        "tags": [],
+        "tags": [
+          "users"
+        ],
         "description": "",
         "parameters": [
           {
@@ -83,7 +93,9 @@
         }
       },
       "patch": {
-        "tags": [],
+        "tags": [
+          "users"
+        ],
         "description": "",
         "parameters": [
           {
@@ -117,9 +129,21 @@
     },
     "/files/": {
       "post": {
-        "tags": [],
+        "tags": [
+          "file"
+        ],
         "description": "",
+        "consumes": [
+          "multipart/form-data"
+        ],
         "parameters": [
+          {
+            "name": "file",
+            "in": "formData",
+            "type": "file",
+            "required": true,
+            "description": "Some description..."
+          },
           {
             "name": "obj",
             "in": "body",
@@ -140,7 +164,9 @@
         }
       },
       "get": {
-        "tags": [],
+        "tags": [
+          "file"
+        ],
         "description": "",
         "parameters": [],
         "responses": {
@@ -152,7 +178,9 @@
     },
     "/files/{id}": {
       "get": {
-        "tags": [],
+        "tags": [
+          "file"
+        ],
         "description": "",
         "parameters": [
           {

@@ -8,6 +8,9 @@ import prisma from "../database/prisma";
 
 class UserController {
   async create(req: Request, res: Response) {
+    /**
+     * #swagger.tags = ['users']
+     */
     let userData = req.body;
     userData.password = await hashPassword(userData.password);
     const data = await prisma.user.create({
@@ -20,6 +23,9 @@ class UserController {
   }
 
   async list(req: Request, res: Response) {
+    /**
+     * #swagger.tags = ['users']
+     */
     const data = await prisma.user.findMany({
       select: {
         id: true,
@@ -31,6 +37,9 @@ class UserController {
   }
 
   async get(req: Request, res: Response) {
+    /**
+     * #swagger.tags = ['users']
+     */
     const { id } = req.params;
     const data = await prisma.user.findUnique({
       where: {
@@ -46,6 +55,9 @@ class UserController {
   }
 
   async update(req: Request, res: Response) {
+    /**
+     * #swagger.tags = ['users']
+     */
     const { id } = req.params;
     const { name, email } = req.body;
     const data = await prisma.user.update({
@@ -65,6 +77,16 @@ class UserController {
   }
 
   async auth(req: Request, res: Response) {
+    /*
+     * #swagger.description = 'Rota de autenticação de usuários'
+     * #swagger.tags = ['auth']
+     * #swagger.parameters['email'] = {
+        in: 'body',
+        description: 'Endereço de e-mail do usuário',
+        required: true,
+        type: 'string'
+       }
+     */
     const { email, password } = req.body;
     const data = await prisma.user.findUnique({
       where: {

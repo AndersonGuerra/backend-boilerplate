@@ -1,7 +1,7 @@
 import "dotenv/config";
 import "express-async-errors";
-// import swaggerUi from "swagger-ui-express";
-// import swaggerFile from "../swagger_output.json";
+import swaggerUi from "swagger-ui-express";
+import swaggerFile from "../swagger_output.json";
 import express from "express";
 import routes from "./routes/index.routes";
 import fs from "fs";
@@ -16,7 +16,7 @@ const port = process.env.PORT || 3000;
 app.use(express.json());
 app.use(setUser);
 // inicializa o swagger ui
-// app.use("/doc", swaggerUi.serve, swaggerUi.setup(swaggerFile));
+app.use("/doc", swaggerUi.serve, swaggerUi.setup(swaggerFile));
 // aplica as rotas na nossa aplicação
 app.use(routes);
 app.use(errorHandler);
