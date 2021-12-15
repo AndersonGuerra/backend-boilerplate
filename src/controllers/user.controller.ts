@@ -31,6 +31,11 @@ class UserController {
         id: true,
         name: true,
         email: true,
+        posts: {
+          select: {
+            text: true,
+          },
+        },
       },
     });
     return res.json(data);
