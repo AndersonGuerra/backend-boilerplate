@@ -1,5 +1,6 @@
 import "dotenv/config";
 import "express-async-errors";
+import cors from "cors";
 import swaggerUi from "swagger-ui-express";
 import swaggerFile from "../swagger_output.json";
 import express from "express";
@@ -13,6 +14,7 @@ if (!fs.existsSync("./uploads")) fs.mkdirSync("./uploads");
 const app = express();
 const port = process.env.PORT || 3000;
 
+app.use(cors());
 app.use(express.json());
 app.use(setUser);
 // inicializa o swagger ui
