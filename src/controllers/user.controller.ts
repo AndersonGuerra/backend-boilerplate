@@ -107,7 +107,7 @@ class UserController {
       };
       if (samePassword) {
         const token = jwt.sign(userData, process.env.SECRET);
-        return res.json({ auth: true, token });
+        return res.json({ auth: true, user: userData, token });
       }
       throw new AppError(401, "Email ou senha inválidos");
     }
